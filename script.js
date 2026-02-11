@@ -251,21 +251,22 @@ fetch('https://api.github.com/users/ginozza')
         lastMX = e.clientX; lastMY = e.clientY;
     });
 
-    // ── Touch Controls ───────────────────────────────────────────
+    // ── Touch Controls (passive to allow scrolling) ─────────────
     let tX = 0, tY = 0;
     canvas.addEventListener('touchstart', e => {
-        e.preventDefault();
-        tX = e.touches[0].clientX; tY = e.touches[0].clientY;
-        dragging = true;
-    });
+        if (e.touches.length === 2) {
+            tX = e.touches[0].clientX; tY = e.touches[0].clientY;
+            dragging = true;
+        }
+    }, { passive: true });
     canvas.addEventListener('touchmove', e => {
-        if (!dragging) return; e.preventDefault();
+        if (!dragging) return;
         const tc = e.touches[0];
         azim -= (tc.clientX - tX) * 0.005;
         incl = Math.max(0.3, Math.min(Math.PI - 0.3, incl + (tc.clientY - tY) * 0.005));
         tX = tc.clientX; tY = tc.clientY;
-    });
-    canvas.addEventListener('touchend', () => { dragging = false; });
+    }, { passive: true });
+    canvas.addEventListener('touchend', () => { dragging = false; }, { passive: true });
 
     // ── Scroll Fade ──────────────────────────────────────────────
     window.addEventListener('scroll', () => {

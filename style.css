@@ -76,6 +76,15 @@ body {
     height: 100%;
     opacity: 1;
     transition: opacity 0.8s ease;
+    z-index: 0;
+    touch-action: pan-y;
+    pointer-events: none;
+}
+
+@media (min-width: 769px) {
+    #blackHoleCanvas {
+        pointer-events: auto;
+    }
 }
 
 #blackHoleCanvas.fade-out {
@@ -89,6 +98,7 @@ body {
     z-index: 2;
     text-align: right;
     animation: fadeInUp 1s ease;
+    pointer-events: none;
 }
 
 .profile-img {
@@ -479,11 +489,11 @@ footer {
 
 @media (max-width: 768px) {
     section {
-        padding: 4rem 0;
+        padding: 3rem 0;
     }
 
     .container {
-        padding: 0 1.5rem;
+        padding: 0 1.25rem;
     }
 
     #langToggle {
@@ -494,16 +504,50 @@ footer {
     .hero-content {
         bottom: 2rem;
         right: 1.5rem;
+        left: 1.5rem;
+        text-align: center;
     }
 
     .profile-img {
         width: 60px;
         height: 60px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.875rem;
     }
 
     .projects-grid,
     .research-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-items {
+        gap: 0.4rem;
+    }
+
+    .skill-item {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .skill-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
     }
 
     .timeline {
@@ -516,5 +560,13 @@ footer {
 
     .timeline-marker {
         left: -2.25rem;
+    }
+
+    .research-card {
+        padding: 1.25rem;
+    }
+
+    .footer-links {
+        gap: 1.25rem;
     }
 }
