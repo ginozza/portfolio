@@ -77,13 +77,12 @@ body {
     opacity: 1;
     transition: opacity 0.8s ease;
     z-index: 0;
-    touch-action: pan-y;
-    pointer-events: none;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 768px) {
     #blackHoleCanvas {
-        pointer-events: auto;
+        pointer-events: none;
+        touch-action: none;
     }
 }
 
@@ -93,12 +92,15 @@ body {
 
 .hero-content {
     position: absolute;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 2;
-    text-align: right;
+    text-align: center;
+    padding: 2rem;
     animation: fadeInUp 1s ease;
     pointer-events: none;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
 }
 
 .profile-img {
@@ -109,6 +111,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.2);
     object-fit: cover;
     margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-title {
@@ -502,17 +505,12 @@ footer {
     }
 
     .hero-content {
-        bottom: 2rem;
-        right: 1.5rem;
-        left: 1.5rem;
-        text-align: center;
+        padding: 1.5rem;
     }
 
     .profile-img {
         width: 60px;
         height: 60px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .hero-title {
