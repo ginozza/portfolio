@@ -275,7 +275,7 @@ const repositories = [
     'ginozza/ml-analyst-sivigila',
     'ginozza/posix-sync-perf',
     'ginozza/JChess',
-    'ginozza/blog-rust'
+    'ginozza/blog-rust',
     'ginozza/Doom',
     'ginozza/netpher',
     'ginozza/trigonometric-parser'
