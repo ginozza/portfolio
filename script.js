@@ -276,6 +276,9 @@ const repositories = [
     'ginozza/posix-sync-perf',
     'ginozza/JChess',
     'ginozza/blog-rust'
+    'ginozza/Doom',
+    'ginozza/netpher',
+    'ginozza/trigonometric-parser'
 ];
 
 const projectData = {
@@ -291,6 +294,15 @@ const projectData = {
     },
     'blog-rust': {
         type: 'personal'
+    },
+    'Doom': {
+        type: 'personal'
+    },
+    'netpher': {
+        type: 'personal'
+    },
+    'trigonometric-parser': {
+        type: 'academic'
     }
 };
 
