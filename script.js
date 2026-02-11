@@ -241,10 +241,12 @@ fetch('https://api.github.com/users/ginozza')
     canvas.addEventListener('mousedown', e => {
         dragging = true; lastMX = e.clientX; lastMY = e.clientY;
         canvas.style.cursor = 'grabbing';
+        e.preventDefault();
     });
-    canvas.addEventListener('mouseup', () => { dragging = false; canvas.style.cursor = 'grab'; });
-    canvas.addEventListener('mouseleave', () => { dragging = false; canvas.style.cursor = 'grab'; });
-    canvas.addEventListener('mousemove', e => {
+    document.addEventListener('mouseup', () => {
+        if (dragging) { dragging = false; canvas.style.cursor = 'grab'; }
+    });
+    document.addEventListener('mousemove', e => {
         if (!dragging) return;
         azim -= (e.clientX - lastMX) * 0.005;
         incl = Math.max(0.3, Math.min(Math.PI - 0.3, incl + (e.clientY - lastMY) * 0.005));
